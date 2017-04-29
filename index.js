@@ -52,7 +52,7 @@ function buildApiService(apiDoc, options) {
     apiFunctionDeclaration.push('  const handleSecurity = (security, headers, params, operationId) => {');
     apiFunctionDeclaration.push('    for (let i = 0, ilen = security.length; i < ilen; i++) {');
     apiFunctionDeclaration.push('      let scheme = security[i];');
-    apiFunctionDeclaration.push('      let schemeParts = Object.keys(scheme);');
+    apiFunctionDeclaration.push('      let schemeParts = Objectkeys(scheme);');
     apiFunctionDeclaration.push('      for (let j = 0, jlen = schemeParts.length; j < jlen; j++) {');
     apiFunctionDeclaration.push('        let schemePart = schemeParts[j];');
     apiFunctionDeclaration.push('        let fulfilsSecurityRequirements = securityHandlers[schemePart](');
@@ -80,7 +80,7 @@ function buildApiService(apiDoc, options) {
   }
   apiFunctionDeclaration.push('  const buildQuery = (obj) => {');
   apiFunctionDeclaration.push('    return Object.keys(obj)');
-  apiFunctionDeclaration.push('      .filter(key => typeof obj.key !== \'undefined\')');
+  apiFunctionDeclaration.push('      .filter(key => typeof obj[key] !== \'undefined\')');
   apiFunctionDeclaration.push('      .map((key) => {');
   apiFunctionDeclaration.push('        const value = obj[key];');
   apiFunctionDeclaration.push('        if (value === undefined) {');
